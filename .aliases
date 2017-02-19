@@ -40,4 +40,9 @@ alias gdl="gradle"
 ## Start a simple HTTP Server
 alias server="open http://localhost:8000/ && python -m SimpleHTTPServer"
 
-alias alv2="cp ~/.dotfiles/licenses/ALv2.txt ./LICENSE.txt"
+alias mci='mvnrun clean install'
+alias mcist='mvnrun clean install -Dmaven.test.skip=true $@'
+
+alias pr="cd ~/development/projects"
+alias sp="cd ~/development/sideprojects"
+alias prpro="cd ~/development/projects/provinzial"

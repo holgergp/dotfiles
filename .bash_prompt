@@ -57,3 +57,12 @@ function __prompt_command() {
 
   PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\h \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on\")\[$PURPLE\]\$(git-radar --bash)\n$second_line_prompt"
 }
+
+#https://github.com/magicmonty/bash-git-prompt
+#if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
+#    GIT_PROMPT_THEME=Default
+#    source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
+#  fi
+
+#https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks
+source ~/scripts/git/contrib/completion/git-completion.bash

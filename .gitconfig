@@ -1,37 +1,24 @@
 [user]
-  email = beneritter@gmail.com
-  name = Benedikt Ritter
+	name = Holger Grosse-Plankermann
+	email = holgergp@gmail.com
 [core]
-  excludesfile = ~/.dotfiles/.gitignore_global
-  autocrlf = input
-  editor = vim
-  pager = diff-so-fancy | less --tabs=4 -RFX
-
-[push]
-  default = simple
-
+	excludesfile = /Users/hgp/.gitignore_global
+	autocrlf = input
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 [alias]
-  this = "!f() { git init && git add --all && git commit -m 'Initial commit'; }; f"
-  tags = tag -l
-  branches = branch -a
-  remotes = remote -v
-  lg = log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-  cleanup = "!f() { git branch --merged master | grep -v master | xargs -n 1 git branch -D;  }; f"
-  sync = "!f() { git checkout master && git fetch upstream && git merge upstream/master && git push origin master && git cleanup && git fetch -p;  }; f"
-  co = checkout
-  cm = checkout master
-  st = status
-  ci = commit
-  cia = commit --amend
-  rbi = rebase -i master
-  rbm = rebase master
-  rbc = rebase --continue
-[credential "https://git-wip-us.apache.org/"]
-  helper = osxkeychain
-[credential "https://oevcloud.org/"]
-  helper = osxkeychain
-
-[filter "lfs"]
-  required = true
-  clean = git-lfs clean %f
-  smudge = git-lfs smudge %f
+# assumes git.git clone at ~/src/git
+# short for checkour
+co = checkout
+diff-highlight = "!f() { git diff \"$@\" | ~/scripts/git/contrib/diff-highlight/diff-highlight; }; f"
+# new branch
+cob = checkout -b
+# add and commit
+cm = !git add -A && git commit -m
+	loga = log --format=\"%C(yellow)%h %C(red)%cd %C(green)%<(18,trunc)%cn %C(reset)%s\" --date=\"format:%d %b %H:%M:%S\"
+[color "status"]
+	changed = magenta white bold

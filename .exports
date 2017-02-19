@@ -1,20 +1,19 @@
 ## SDKs ##
 export JAVA_7_HOME=`/usr/libexec/java_home -v 1.7`
 export JAVA_8_HOME=`/usr/libexec/java_home -v 1.8`
-export JAVA_9_HOME=`/usr/libexec/java_home -v 9`
 export JAVA_HOME=$JAVA_8_HOME
 export GROOVY_HOME=/usr/local/Cellar/groovy/2.3.7/libexec
-
-export GOPATH=~/.gopath
 
 ## PATH ##
 export PATH=/usr/local/bin:/usr/local/sbin:$JAVA_HOME/bin:~/bin:$PATH
 
 export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=128m"
 
-export SVN_EDITOR=vim
-
 export DOCKER_TLS_VERIFY=1
 export DOCKER_CERT_PATH=$HOME/.docker/machine/machines/default
 export DOCKER_HOST=tcp://192.168.99.100:2376
 export DOCKER_MACHINE_NAME=default
+
+#NVM
+export NVM_DIR="/Users/hgp/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

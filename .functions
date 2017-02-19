@@ -1,83 +1,31 @@
 ## Open man page as PDF
 pman () { man -t "${1}" | open -f -a "Preview"; }
 
-# traverse the directory hierarchy up until finds a gradlew file and executes
-# it with arguments supplied by user
-gdw() {
-  _GDW_DIR=$(pwd)
-  while [ "$_GDW_DIR" != "/" ]; do
-    if [ -f "$_GDW_DIR/gradlew" ]; then
-      _GDW_EXEC="$_GDW_DIR/gradlew --stacktrace"
-
-      if [ -f $_GDW_DIR/init.gradle ]; then
-        _GDW_EXEC="$_GDW_EXEC -I $_GDW_DIR/init.gradle"
-      fi
-
-      $_GDW_EXEC "$@"
-      return $?
-      break;
-    fi
-
-    _GDW_DIR=$(dirname $_GDW_DIR)
-    echo $_GDW_DIR
-  done
-}
-
-## initialize maven wrapper
-mvnwinit() {
-  if [ $# -eq 0 ]
-  then
-    mvn -N io.takari:maven:wrapper
-  else
-    mvn -N io.takari:maven:wrapper -Dmaven=$1
-  fi
-}
-
-mvnw() {
-  if [[ $1 == "init" ]]
-  then
-    mvnwinit $2
-  elif [[ -f mvnw ]]
-  then
-    ./mvnw "$@"
-    return $?
-  else echo "No maven wrapper available for this project! Run mvnw init first."
-  fi
-}
-
-## Resets SVN working copy, reverting all changed files and removing all unversioned files. Usage: svn reset
-svn() {
-  if [[ $@ == "reset" ]];
-    then
-      command svn revert --recursive . && svn status | grep ^\? | cut -c9- | xargs  rm -r;
-    else command svn "$@";
-  fi;
-}
 
 ## Show the location of a linked program
 ref() { readlink $(which "${1}"); }
 
-## Switching between different Java versions
-usejava() {
-  if [ $# -eq 0 ]
-  then
-    echo "JAVA_HOME: $JAVA_HOME"
-  else
-    OLD_JAVA_HOME=$JAVA_HOME
-    if [[ $1 < 9 ]]
-    then
-      NEW_JAVA_HOME=`/usr/libexec/java_home -v 1.$1`
-    else
-      NEW_JAVA_HOME=`/usr/libexec/java_home -v $1`
-    fi
-    if [[ $? == 0 ]]
-    then
-      echo "Setting JAVA_HOME to: $NEW_JAVA_HOME"
-      export JAVA_HOME=$NEW_JAVA_HOME
-      export PATH=${PATH//$OLD_JAVA_HOME/$NEW_JAVA_HOME}
-    else echo "Java 1.$1 is not available! JAVA_HOME: $JAVA_HOME"
-    fi
+#http://www.jayway.com/2014/01/15/how-to-switch-jdk-version-on-mac-os-x-maverick/
+function setjdk() {
+  if [ $# -ne 0 ]; then
+   removeFromPath '/System/Library/Frameworks/JavaVM.framework/Home/bin'
+   if [ -n "${JAVA_HOME+x}" ]; then
+    removeFromPath $JAVA_HOME
+   fi
+   export JAVA_HOME=`/usr/libexec/java_home -v $@`
+   export PATH=$JAVA_HOME/bin:$PATH
   fi
+ }
+ function removeFromPath() {
+  export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
+ }
+setjdk 1.8
+
+#Some Info when running Maven
+mvnrun () {
+  echo mvn $@
+  eval mvn $@
+  echo mvn $@
 }
 
 ## Output MANIFEST for the given jar
@@ -85,12 +33,6 @@ manifest() { unzip -q -c "${1}" META-INF/MANIFEST.MF; }
 
 ## Output LINCENSE file for the given jar
 license() { unzip -q -c "${1}" META-INF/LICENSE.txt; }
-
-## Get svn keywords
-gkw() { svn pg svn:keywords ${1}; }
-
-## Set svn keywords
-skw() { svn ps svn:keywords "Date Author Id Revision HeadURL" ${1}; }
 
 ## auto detect git ignore
 ## requires bash 4!
