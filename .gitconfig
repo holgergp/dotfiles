@@ -19,6 +19,15 @@ diff-highlight = "!f() { git diff \"$@\" | ~/scripts/git/contrib/diff-highlight/
 cob = checkout -b
 # add and commit
 cm = !git add -A && git commit -m
-	loga = log --format=\"%C(yellow)%h %C(red)%cd %C(green)%<(18,trunc)%cn %C(reset)%s\" --date=\"format:%d %b %H:%M:%S\"
+#loga = log --format=\"%C(yellow)%h %C(red)%cd %C(green)%<(18,trunc)%cn %C(reset)%s\" --date=\"format:%d %b %H:%M:%S\"
+loga = log --first-parent -20 --format=\"%C(yellow)%h %C(red)%cd %C(green)%<(18,trunc)%cn %C(reset)%s\" --date=\"format:%d %b %H:%M:%S\"
+dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
+
 [color "status"]
 	changed = magenta white bold
+
+[color "diff"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
