@@ -1,4 +1,4 @@
-# britter's dotfiles
+# holgergp's dotfiles
 
 This is a repository containing configuration files for my development environment.
 
