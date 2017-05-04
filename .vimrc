@@ -23,7 +23,6 @@ set ttimeoutlen=50
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
-" Syntax highlighting for gradle files
 
 """ Vundle configuration
 " set the runtime path to include Vundle and initialize

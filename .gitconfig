@@ -4,6 +4,7 @@
 [core]
 	excludesfile = /Users/hgp/.gitignore_global
 	autocrlf = input
+	editor = /usr/bin/vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
