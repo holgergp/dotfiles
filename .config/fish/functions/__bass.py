@@ -1,0 +1,1 @@
+/Users/hgp/.config/fisherman/bass/functions/__bass.py
