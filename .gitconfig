@@ -1,10 +1,13 @@
 [user]
 	name = Holger Grosse-Plankermann
 	email = holgergp@gmail.com
+[includeif "gitdir:/Users/hgp/development/projects/"]
+	path = ~/.dotfiles/.gitconfig-work
 [core]
 	excludesfile = /Users/hgp/.gitignore_global
 	autocrlf = input
 	editor = /usr/bin/vim
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
