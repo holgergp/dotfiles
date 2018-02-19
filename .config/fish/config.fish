@@ -21,3 +21,5 @@ set -x NVM_HOME $HOME/.nvm
 nvm use default 
 set -x MAVEN_OPTS "-Xmx512m -XX:MaxPermSize=128m"
 
+
+thefuck --alias | source
