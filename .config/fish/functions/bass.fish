@@ -1,1 +1,1 @@
-/Users/hgp/.config/fisherman/bass/functions/bass.fish
+/Users/holgergp/.config/fisherman/bass/functions/bass.fish

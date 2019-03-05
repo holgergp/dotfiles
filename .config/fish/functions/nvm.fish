@@ -1,1 +1,1 @@
-/Users/hgp/.config/fisherman/nvm/functions/nvm.fish
+/Users/holgergp/.config/fisherman/nvm/functions/nvm.fish

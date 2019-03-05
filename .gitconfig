@@ -35,3 +35,5 @@ dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \
 	oldHighlight = red bold 52
 	newNormal = green bold
 	newHighlight = green bold 22
+[credential]
+	helper = osxkeychain

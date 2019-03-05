@@ -1,0 +1,1 @@
+/Users/holgergp/.config/fisherman/nvm/functions/npx.fish
