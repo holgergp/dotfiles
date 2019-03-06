@@ -18,3 +18,9 @@ set PATH /usr/local/bin /usr/local/sbin $JAVA_HOME/bin $ANDROID_HOME $HOME/.fast
 #nvm use default 
 
 status --is-interactive; and source (rbenv init -|psub)
+
+if not functions -q fisher
+    set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
+    curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
+    fish -c fisher
+end
