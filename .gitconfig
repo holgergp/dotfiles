@@ -1,7 +1,7 @@
 [user]
 	name = Holger Grosse-Plankermann
-	email = holger.grosse-plankermann@codecentric.de
-[includeif "gitdir:/Users/hgp/development/projects/"]
+	email = holgergp@gmail.com
+[includeif "gitdir:/Users/holgergp/development/projects/"]
 	path = ~/.dotfiles/.gitconfig-work
 [core]
 	excludesfile = /Users/holgergp/.gitignore_global
