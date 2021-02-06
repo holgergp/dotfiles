@@ -1,7 +1,7 @@
 ## Initialize brew auto completion ##
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
-fi
+#if [ -f $(brew --prefix)/etc/bash_completion ]; then
+#    . $(brew --prefix)/etc/bash_completion
+#fi
 
 ## Initialize nvm ##
 export NVM_DIR="/Users/hgp/.nvm"
@@ -11,4 +11,4 @@ export NVM_DIR="/Users/hgp/.nvm"
 eval "$(rbenv init -)"
 
 #https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks
-source ~/scripts/git/contrib/completion/git-completion.bash
+#source ~/scripts/git/contrib/completion/git-completion.bash
