@@ -4,7 +4,7 @@
 #fi
 
 ## Initialize nvm ##
-export NVM_DIR="/Users/hgp/.nvm"
+export NVM_DIR="/Users/holgergp/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 ## Initialize rbenv ##
