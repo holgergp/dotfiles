@@ -1,10 +1,10 @@
 [user]
 	name = Holger Grosse-Plankermann
-	email = holgergp@gmail.com
+	email = holger.grosse-plankermann@codecentric.de
 [includeif "gitdir:/Users/hgp/development/projects/"]
 	path = ~/.dotfiles/.gitconfig-work
 [core]
-	excludesfile = /Users/hgp/.gitignore_global
+	excludesfile = /Users/holgergp/.gitignore_global
 	autocrlf = input
 	editor = /usr/bin/vim
 	pager = diff-so-fancy | less --tabs=4 -RFX
@@ -12,7 +12,7 @@
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [alias]
 # assumes git.git clone at ~/src/git
@@ -37,3 +37,5 @@ dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \
 	newHighlight = green bold 22
 [credential]
 	helper = osxkeychain
+[pull]
+	rebase = false
