@@ -65,4 +65,4 @@ function __prompt_command() {
 #  fi
 
 #https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks
-source ~/scripts/git/contrib/completion/git-completion.bash
+#source ~/scripts/git/contrib/completion/git-completion.bash
