@@ -1,0 +1,28 @@
+format = """\
+    $username\
+    $hostnam\
+    $directory\
+    $git_branch\
+    $git_commit\
+    $git_state\
+    $git_status\
+    $package\
+    $java\
+    $nodejs\
+    $nix_shell\
+    $env_var\
+    $cmd_duration\
+    $line_break\
+    $jobs\
+    $time\
+    $character\
+  """
+
+command_timeout= 1000
+
+[time]
+disabled = false
+time_format = "%T"
+format = "🕙 [$time]($style) "
+utc_time_offset = "+2"
+use_12hr = false
