@@ -9,6 +9,7 @@ format = """\
     $package\
     $java\
     $nodejs\
+    $python\
     $nix_shell\
     $env_var\
     $cmd_duration\

@@ -3,4 +3,8 @@
 export SDKMAN_DIR="/Users/holgergp/.sdkman"
 [[ -s "/Users/holgergp/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/holgergp/.sdkman/bin/sdkman-init.sh"
 
-export PATH="$HOME/.cargo/bin:$PATH"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/holgergp/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+. "$HOME/.cargo/env"
